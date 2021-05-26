@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "125247483535",
-    "project_id": "daroltarjomeh-b283c",
-    "storage_bucket": "daroltarjomeh-b283c.appspot.com"
+    "project_number": "1002078841306",
+    "project_id": "daroltarjome-ea978",
+    "storage_bucket": "daroltarjome-ea978.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:125247483535:android:8d5f4d3c5747866f9bcafa",
+        "mobilesdk_app_id": "1:1002078841306:android:46a62a6d996c8d563978e3",
         "android_client_info": {
           "package_name": "com.example.daroltarjomeh"
         }
       },
       "oauth_client": [
         {
-          "client_id": "125247483535-crkae5ttjcimsc597124n0k5h88vfolg.apps.googleusercontent.com",
+          "client_id": "1002078841306-1qt7c3jkppacciauise9b8gefv1dhu6h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDSPyCYPxQ4H7NFo1QYgg-g_IHmxU0EkvM"
+          "current_key": "AIzaSyAP9938c2nF8GZiKngNpeAKhUTus2qQJyQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "125247483535-crkae5ttjcimsc597124n0k5h88vfolg.apps.googleusercontent.com",
+              "client_id": "1002078841306-1qt7c3jkppacciauise9b8gefv1dhu6h.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
