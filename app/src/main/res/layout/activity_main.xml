@@ -4,16 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/background"
+    tools:context=".main.MainActivity">
 
     <fragment
         android:id="@+id/displayButtonFragment"
-        android:name="com.example.daroltarjomeh.fragment.ButtonFragment"
+        android:name="com.example.daroltarjomeh.fragments.MainButtonFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/mainFrameLayout"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHeight_percent="0.50"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintWidth_percent="0.80" />-->
+
+    <TextView
+        android:id="@+id/signUpTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="Sign Up"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextFragment"
+        app:layout_constraintEnd_toStartOf="@+id/middleTextView"
+        app:layout_constraintStart_toStartOf="@+id/editTextFragment" />
+
+    <TextView
+        android:id="@+id/middleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="or"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/signInTextView"
+        app:layout_constraintStart_toEndOf="@+id/signUpTextView"
+        app:layout_constraintTop_toTopOf="@+id/signInTextView" />
+
+    <TextView
+        android:id="@+id/signInTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="30dp"
+        android:text="Sign In"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextFragment"
+        app:layout_constraintStart_toEndOf="@+id/middleTextView" />
+
+
+    <fragment
+        android:id="@+id/editTextFragment"
+        android:name="com.example.daroltarjomeh.fragments.EditTextFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.80" />
+
+    <fragment
+        android:id="@+id/buttonFragment"
+        android:name="com.example.daroltarjomeh.fragments.ButtonFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@+id/editTextFragment"
+        app:layout_constraintTop_toBottomOf="@+id/editTextFragment" />
 
     <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
     <!--        android:id="@+id/topLinearLayout"-->
