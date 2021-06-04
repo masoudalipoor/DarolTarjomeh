@@ -3,4 +3,9 @@
 
     <string name="register">Register</string>
     <string name="login">Login</string>
+
+    <string name="type">تایپ</string>
+    <string name="article">مقاله</string>
+    <string name="translation">ترجمه</string>
+    <string name="more">بیشتر</string>
 </resources>

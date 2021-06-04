@@ -1,7 +1,9 @@
 package com.example.daroltarjomeh.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -11,6 +13,7 @@ import com.example.daroltarjomeh.db.entity.UserEntity
 import com.example.daroltarjomeh.fragments.ButtonFragment
 import com.example.daroltarjomeh.fragments.MainButtonFragment
 import com.example.daroltarjomeh.fragments.EditTextFragment
+import com.example.daroltarjomeh.host.CustomerServices
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(),
@@ -61,8 +64,14 @@ class MainActivity : AppCompatActivity(),
 
     override fun onLoginCompleteClicked()  {
         mainViewModel.user.observe(this) { user ->
-
+            if (user.userEmail == editTextFragment?.getEmailText()) {
+                startActivity(Intent(this, CustomerServices::class.java))
+                finish()
+            } else
+                Toast.makeText(this, "ایمیل اشتباه است", Toast.LENGTH_LONG).show()
         }
+
+        startActivity(Intent(this, CustomerServices::class.java))
     }
 
     override fun onRegisterCompleteClicked() {
