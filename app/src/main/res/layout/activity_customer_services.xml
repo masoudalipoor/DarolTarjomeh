@@ -8,21 +8,46 @@
     tools:context=".host.CustomerServices">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/showTopInformationCardView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="8dp"
         android:elevation="12dp"
-        android:visibility="gone"
+        android:visibility="invisible"
         app:cardBackgroundColor="#718792"
         app:cardCornerRadius="8dp"
         app:cardElevation="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/tabsCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.85"
         app:layout_goneMarginBottom="15dp">
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tabsConstraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="15dp"
+        android:elevation="12dp"
+        app:cardBackgroundColor="@color/teal_200"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabsCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.85">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:tabRippleColor="#718792"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="#718792" />
 
     </androidx.cardview.widget.CardView>
 
@@ -35,7 +60,7 @@
         app:cardBackgroundColor="#718792"
         app:cardCornerRadius="8dp"
         app:cardElevation="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/tabsConstraintLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.30"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,76 +76,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="visible" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/tabsConstraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="15dp"
-        android:elevation="12dp"
-        app:cardBackgroundColor="@color/teal_200"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.85">
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            app:tabTextColor="#718792"
-            app:tabSelectedTextColor="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <!--        <com.example.daroltarjomeh.utils.CustomTAbLayout-->
-        <!--            android:id="@+id/tabs"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="60dp"-->
-        <!--            android:layout_gravity="end"-->
-        <!--            android:background="@android:color/transparent"-->
-        <!--            android:layoutDirection="ltr"-->
-        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--            app:tabBackground="@android:color/transparent"-->
-        <!--            app:tabGravity="fill"-->
-        <!--            app:tabIndicatorColor="#888888"-->
-        <!--            app:tabIndicatorHeight="0dp"-->
-        <!--            app:tabMode="fixed"-->
-        <!--            app:tabSelectedTextColor="@color/white"-->
-        <!--            app:tabTextAppearance="@style/TextAppearance.MaterialComponents.Headline6"-->
-        <!--            app:tabTextColor="#8c8e90">-->
-
-        <!--            <com.google.android.material.tabs.TabItem-->
-        <!--                android:id="@+id/tabItemMore"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:icon="@drawable/ic_tab_more"-->
-        <!--                android:layout="@layout/tab_view" />-->
-
-        <!--            <com.google.android.material.tabs.TabItem-->
-        <!--                android:id="@+id/tabItemArticle"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:icon="@drawable/ic_tab_article"-->
-        <!--                android:layout="@layout/tab_view" />-->
-
-        <!--            <com.google.android.material.tabs.TabItem-->
-        <!--                android:id="@+id/tabItemType"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:icon="@drawable/ic_tab_type"-->
-        <!--                android:layout="@layout/tab_view" />-->
-
-        <!--            <com.google.android.material.tabs.TabItem-->
-        <!--                android:id="@+id/tabItemTranslation"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:icon="@drawable/ic_tab_translation"-->
-        <!--                android:layout="@layout/tab_view" />-->
-
-        <!--        </com.example.daroltarjomeh.utils.CustomTAbLayout>-->
 
     </androidx.cardview.widget.CardView>
 

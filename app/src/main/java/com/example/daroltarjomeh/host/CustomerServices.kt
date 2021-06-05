@@ -1,10 +1,13 @@
 package com.example.daroltarjomeh.host
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.example.daroltarjomeh.R
@@ -16,8 +19,9 @@ import com.example.daroltarjomeh.type.TypeFragment
 import com.example.daroltarjomeh.utils.CustomTAbLayout
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import kotlinx.android.synthetic.main.activity_customer_services.*
 
-class CustomerServices : AppCompatActivity() {
+class CustomerServices : AppCompatActivity(), TranslationFragment.onButtonTranslationListener {
 
     private lateinit var activity: FragmentActivity
     private var adapter: ViewPagerAdapter? = null
@@ -25,7 +29,6 @@ class CustomerServices : AppCompatActivity() {
     private var tabLayout: TabLayout? = null
     private var viewpager: ViewPager? = null
     private var fragment: FragmentTransaction ?= null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -123,29 +126,16 @@ class CustomerServices : AppCompatActivity() {
     private fun getTabTitle(position: Int): Int {
         return when (position) {
             0 -> R.string.more
-            1 -> R.string.translation
-            2 -> R.string.article
-            3 -> R.string.type
+            1 -> R.string.article
+            2 -> R.string.type
+            3 -> R.string.translation
             else -> 0
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    override fun onGeneralClicked() {
+        showTopInformationCardView.visibility = View.VISIBLE
+    }
 
 
 //    fun getTabView(i: Int): LinearLayout? {

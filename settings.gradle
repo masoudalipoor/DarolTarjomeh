@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':peach-2.5'
 rootProject.name = "DarolTarjomeh"
