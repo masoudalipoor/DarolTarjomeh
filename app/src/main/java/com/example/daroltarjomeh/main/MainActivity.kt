@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(),
 
     private var editTextFragment: EditTextFragment ?= null
     private var buttonFragment: ButtonFragment? = null
+    private val mainContext = this@MainActivity
 
     private val mainViewModel: MainViewModel by viewModels {
         MainViewModelFactory((application as AppDaroltarjomeh).repository)
@@ -43,13 +44,13 @@ class MainActivity : AppCompatActivity(),
         editTextFragment =
             supportFragmentManager.findFragmentById(R.id.editTextFragment) as EditTextFragment
 
-        buttonFragment!!.getTextTitle("Login")
+        buttonFragment!!.getTextTitle("ورود")
     }
 
     override fun onLoginClicked(view: View?) {
         signInTextView.setTextColor(ContextCompat.getColor(this, R.color.white))
         signUpTextView.setTextColor(ContextCompat.getColor(this, R.color.text_off))
-        buttonFragment!!.getTextTitle("Login")
+        buttonFragment!!.getTextTitle("ورود")
 //        supportFragmentManager.beginTransaction().apply {
 //            replace(R.id.mainFrameLayout, loginFragment!!)
 //            commit()
@@ -59,19 +60,19 @@ class MainActivity : AppCompatActivity(),
     override fun onRegisterClicked(view: View?) {
         signInTextView.setTextColor(ContextCompat.getColor(this, R.color.text_off))
         signUpTextView.setTextColor(ContextCompat.getColor(this, R.color.white))
-        buttonFragment!!.getTextTitle("Register")
+        buttonFragment!!.getTextTitle("ثبت نام")
     }
 
     override fun onLoginCompleteClicked()  {
         mainViewModel.user.observe(this) { user ->
-            if (user.userEmail == editTextFragment?.getEmailText()) {
-                startActivity(Intent(this, CustomerServices::class.java))
-                finish()
-            } else
-                Toast.makeText(this, "ایمیل اشتباه است", Toast.LENGTH_LONG).show()
+//            if (user.userEmail == editTextFragment?.getEmailText()) {
+//                startActivity(Intent(this, CustomerServices::class.java))
+//                finish()
+//            } else
+//                Toast.makeText(this, "ایمیل اشتباه است", Toast.LENGTH_LONG).show()
         }
 
-        startActivity(Intent(this, CustomerServices::class.java))
+        startActivity(Intent(mainContext, CustomerServices::class.java))
     }
 
     override fun onRegisterCompleteClicked() {

@@ -15,14 +15,21 @@
         android:layout_marginBottom="8dp"
         android:elevation="12dp"
         android:visibility="invisible"
-        app:cardBackgroundColor="#718792"
+        app:cardBackgroundColor="@color/background"
         app:cardCornerRadius="8dp"
         app:cardElevation="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabsConstraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.85"
         app:layout_goneMarginBottom="15dp">
+
+        <FrameLayout
+            android:id="@+id/customerServiceFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.cardview.widget.CardView>
 
@@ -57,7 +64,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:elevation="12dp"
-        app:cardBackgroundColor="#718792"
+        app:cardBackgroundColor="@color/background"
         app:cardCornerRadius="8dp"
         app:cardElevation="12dp"
         app:layout_constraintBottom_toBottomOf="parent"

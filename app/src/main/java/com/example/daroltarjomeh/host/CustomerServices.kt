@@ -2,6 +2,7 @@ package com.example.daroltarjomeh.host
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -13,6 +14,7 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.example.daroltarjomeh.R
 import com.example.daroltarjomeh.adapter.ViewPagerAdapter
 import com.example.daroltarjomeh.article.ArticleFragment
+import com.example.daroltarjomeh.generaltranslation.GeneralTranslationFragment
 import com.example.daroltarjomeh.more.MoreFragment
 import com.example.daroltarjomeh.translation.TranslationFragment
 import com.example.daroltarjomeh.type.TypeFragment
@@ -24,22 +26,19 @@ import kotlinx.android.synthetic.main.activity_customer_services.*
 class CustomerServices : AppCompatActivity(), TranslationFragment.onButtonTranslationListener {
 
     private lateinit var activity: FragmentActivity
+    private var fragment: Fragment ?= null
     private var adapter: ViewPagerAdapter? = null
+    private var manger : FragmentManager? =null
 //    private var taabs: CustomTAbLayout? = null
     private var tabLayout: TabLayout? = null
     private var viewpager: ViewPager? = null
-    private var fragment: FragmentTransaction ?= null
+    private var fragmentTransaction: FragmentTransaction ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_customer_services)
         activity = FragmentActivity()
-//        this.fragment = FragmentTransaction(
-//            R.id.frm_trans,
-//            this@CustomerServices
-//        )
 
-//        taabs = findViewById(R.id.tabs)
         tabLayout = findViewById(R.id.tabLayout)
         viewpager = findViewById(R.id.viewpager)
         initTablayout()
@@ -135,22 +134,10 @@ class CustomerServices : AppCompatActivity(), TranslationFragment.onButtonTransl
 
     override fun onGeneralClicked() {
         showTopInformationCardView.visibility = View.VISIBLE
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.customerServiceFrameLayout, GeneralTranslationFragment.newInstance())
+            commit()
+        }
+
     }
-
-
-//    fun getTabView(i: Int): LinearLayout? {
-//        if (taabs?.childCount!! > 0) {
-//            if ((taabs?.getChildAt(0) as LinearLayout).childCount >= i) return ((taabs?.getChildAt(0)
-//                    as LinearLayout).getChildAt(i) as LinearLayout)
-//        }
-//        return null
-//    }
-//
-//    fun setTabLayoutParams(layout: LinearLayout?, wieght: Float) {
-//        if (layout == null) return
-//        val layoutParams = layout.layoutParams as LinearLayout.LayoutParams
-//        layoutParams.weight = wieght // e.g. 0.5f
-//        layout.layoutParams = layoutParams
-//
-//    }
 }

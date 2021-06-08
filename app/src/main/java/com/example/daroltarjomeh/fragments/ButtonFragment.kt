@@ -51,9 +51,9 @@ class ButtonFragment : Fragment(), View.OnClickListener {
 
         when (v?.id) {
             R.id.loginButton -> {
-                if (requireView().loginButton.text.equals("Register")) {
+                if (requireView().loginButton.text.equals("ثبت نام")) {
                     click?.onRegisterCompleteClicked()
-                } else if (requireView().loginButton.text.equals("Login")) {
+                } else if (requireView().loginButton.text.equals("ورود")) {
                     click?.onLoginCompleteClicked()
                 }
             }
