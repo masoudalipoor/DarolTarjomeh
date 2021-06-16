@@ -3,14 +3,17 @@ package com.example.daroltarjomeh.main
 import androidx.lifecycle.*
 import com.example.daroltarjomeh.db.entity.UserEntity
 import com.example.daroltarjomeh.db.repository.UserRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.supervisorScope
 
 class MainViewModel(private val repository: UserRepository) : ViewModel() {
 
     val user: LiveData<UserEntity> = repository.user.asLiveData()
 
     fun insert(userEntity: UserEntity) = viewModelScope.launch {
-        repository.insert(userEntity)
+        supervisorScope { repository.insert(userEntity) }
     }
 }
 

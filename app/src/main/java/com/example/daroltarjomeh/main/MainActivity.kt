@@ -2,6 +2,7 @@ package com.example.daroltarjomeh.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -15,11 +16,12 @@ import com.example.daroltarjomeh.fragments.MainButtonFragment
 import com.example.daroltarjomeh.fragments.EditTextFragment
 import com.example.daroltarjomeh.host.CustomerServices
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.system.measureTimeMillis
 
 class MainActivity : AppCompatActivity(),
     MainButtonFragment.onButtonClickListener, ButtonFragment.onButtonCompleteClickListener {
 
-    private var editTextFragment: EditTextFragment ?= null
+    private var editTextFragment: EditTextFragment? = null
     private var buttonFragment: ButtonFragment? = null
     private val mainContext = this@MainActivity
 
@@ -63,24 +65,29 @@ class MainActivity : AppCompatActivity(),
         buttonFragment!!.getTextTitle("ثبت نام")
     }
 
-    override fun onLoginCompleteClicked()  {
-        mainViewModel.user.observe(this) { user ->
-//            if (user.userEmail == editTextFragment?.getEmailText()) {
-//                startActivity(Intent(this, CustomerServices::class.java))
-//                finish()
-//            } else
-//                Toast.makeText(this, "ایمیل اشتباه است", Toast.LENGTH_LONG).show()
+    override fun onLoginCompleteClicked() {
+        val time = measureTimeMillis {
+            mainViewModel.user.observe(this) { user ->
+                if (user.userEmail == editTextFragment?.getEmailText()) {
+                    startActivity(Intent(this, CustomerServices::class.java))
+                    finish()
+                } else
+                    Toast.makeText(this, "ایمیل اشتباه است", Toast.LENGTH_LONG).show()
+            }
         }
-
-        startActivity(Intent(mainContext, CustomerServices::class.java))
+        Log.e("onLoginCompleteClicked","$time")
+//        startActivity(Intent(mainContext, CustomerServices::class.java))
     }
 
     override fun onRegisterCompleteClicked() {
-        val userEntity = UserEntity(
-            editTextFragment?.getPasswordText()!!.toLong(),
-            editTextFragment?.getEmailText().toString()
-        )
-        mainViewModel.insert(userEntity)
+        val time = measureTimeMillis {
+            val userEntity = UserEntity(
+                editTextFragment?.getPasswordText()!!.toLong(),
+                editTextFragment?.getEmailText().toString()
+            )
+            mainViewModel.insert(userEntity)
+        }
+     Log.e("onRegisterCompleteCl","$time")
     }
 }
 
