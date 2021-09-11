@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DarolTarjomeh">
-        <activity android:name=".host.CustomerServices"></activity>
+        <activity android:name=".mvp.HostActivity"></activity>
+        <activity android:name=".host.CustomerServices" />
         <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -12,7 +12,7 @@ class MainViewModel(private val repository: UserRepository) : ViewModel() {
 
     val user: LiveData<UserEntity> = repository.user.asLiveData()
 
-    fun insert(userEntity: UserEntity) = viewModelScope.launch {
+    fun     insert(userEntity: UserEntity) = viewModelScope.launch {
         supervisorScope { repository.insert(userEntity) }
     }
 }
